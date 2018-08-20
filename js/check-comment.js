@@ -36,7 +36,7 @@ $(document).ready(function() {
 					_value = _textarea.val().trim();
 				
 			    //  Проверяем есть ли атрибут data-error
-				if (_textarea.attr('data-error') != 0) _errorInfo = "<div class='notify notify--error'>" + 
+				if (_textarea.attr('data-error') != undefined) _errorInfo = "<div class='notify notify--error'>" + 
 					_textarea.attr('data-error') + "</div>";
 				
 				// Проверяем на заполнение
