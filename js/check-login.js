@@ -7,7 +7,7 @@ $(document).ready(function() {
 			_button = $('#check-login__submit'),
 			_email = $('input[type="email"]'),
 			_password = $('input[type="password"]'),
-			_blockMessage = "<div class='notify notify--error mt-20'>",
+			_blockMessage = "<div class='notify notify--error mt-20' style='display:none'>",
 			_textMessage = "Заполните поле",
 			_emailPattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
 
@@ -36,7 +36,7 @@ $(document).ready(function() {
 				} else {
 					_errorInfo = _blockMessage + _textMessage + "</div>"
 				}
-				tag.before(_errorInfo);
+				tag.before(_errorInfo).prev().fadeIn();
 				_isValid = false;
 			}
 
@@ -64,7 +64,7 @@ $(document).ready(function() {
 		}
 
 		var _userAuth = function(isReady){
-			var _startBlockWrapper = "<div id='error-message' class='notify no-paddings'>"
+			var _startBlockWrapper = "<div id='error-message' class='notify no-paddings' style='display:none'>"
 				_notifyTitle = "Неверный email или пароль",
 				_titleBlock = "<div class='notify no-radius-bottom notify--error'>" + _notifyTitle + "</div>",
 				_notifyText = "<p>Введите верные данные для входа или воспользуйтесь <a href='#!'>восстановлением пароля </a>, чтобы войти на сайт.</p>",
@@ -77,7 +77,7 @@ $(document).ready(function() {
 					_form.submit();
 				} else {
 					_form.find('#error-message').remove();	
-					_email.before(_errorMessage);
+					_email.before(_errorMessage).prev().fadeIn();
 				}
 			}
 		}
